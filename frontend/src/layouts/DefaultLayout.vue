@@ -109,6 +109,8 @@ const toggleDesktopSidebar = () => {
   display: block;
   height: 100%;
   flex-shrink: 0;
+  position: relative;
+  z-index: 30;
 }
 
 .content-wrapper {

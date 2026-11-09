@@ -277,6 +277,7 @@ const handleUserCommand = async (command: string) => {
   padding: 0px !important;
   transition: width 0.3s ease;
   position: relative;
+  z-index: 30;
 
   &.collapsed {
     width: 80px;
@@ -371,16 +372,24 @@ const handleUserCommand = async (command: string) => {
     background-color: #ffffff;
     border: 1px solid #E5E7EB;
     color: #4B5563;
-    transition: all 0.3s ease;
-    z-index: 10;
+    transition: all 0.2s ease;
+    z-index: 40;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    padding: 0;
 
     &:hover {
       background-color: #F9FAFB;
       color: #111827;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-primary, #2563EB);
+      outline-offset: 2px;
     }
   }
 }
