@@ -1,0 +1,81 @@
+version: '3.8'
+
+# Mode Pengembangan (Live Hot Reload FE & BE)
+# Jalankan dengan: docker compose -f docker-compose.dev.yml up
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: erp-postgres-dev
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: boilerplate_admin
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data_dev:/var/lib/postgresql/data
+    networks:
+      - erp-network-dev
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d boilerplate_admin"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: erp-backend-dev
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      APP_NAME: "ERP NGI Dev"
+      APP_ENV: local
+      APP_DEBUG: "true"
+      APP_URL: "http://localhost:8000"
+      DB_CONNECTION: pgsql
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_DATABASE: boilerplate_admin
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
+      L5_SWAGGER_GENERATE_ALWAYS: "true"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/var/www/html
+      - /var/www/html/vendor
+    networks:
+      - erp-network-dev
+
+  frontend:
+    image: node:20-alpine
+    container_name: erp-frontend-dev
+    restart: unless-stopped
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - VITE_APP_NAME=Manajemen Konsen Pengguna
+      - VITE_APP_API_URL=http://localhost:8000/api
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0 --port 5173"
+    networks:
+      - erp-network-dev
+
+volumes:
+  postgres_data_dev:
+    driver: local
+
+networks:
+  erp-network-dev:
+    driver: bridge
