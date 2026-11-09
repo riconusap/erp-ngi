@@ -1,0 +1,105 @@
+@use '../variables' as *;
+
+/* Drawer Layout & Header Styles */
+.drawer-breadcrumb {
+  font-size: 0.875rem;
+  color: $color-text-muted;
+  margin-bottom: 24px;
+
+  .back-link {
+    text-decoration: underline;
+    text-decoration-color: $color-border-dark;
+    text-underline-offset: 4px;
+
+    &.pointer {
+      cursor: pointer;
+    }
+  }
+
+  .active {
+    color: $color-text-primary;
+    font-weight: 600;
+  }
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 32px;
+
+  .detail-profile {
+    .name-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      h2 {
+        margin: 0;
+        font-size: 1.5rem;
+        color: $color-text-primary;
+      }
+
+      .status-badge {
+        border-radius: $radius-lg;
+        padding: 0 12px;
+      }
+    }
+
+    .email-text {
+      color: $color-text-muted;
+      margin: 6px 0 0 0;
+      font-size: 0.95rem;
+    }
+  }
+
+  .detail-actions {
+    display: flex;
+    gap: 12px;
+
+    .btn-delete {
+      color: $color-danger-text;
+      background-color: $color-danger-light;
+      border: 1px solid $color-danger-border;
+      padding: 8px 12px;
+
+      &:hover {
+        background-color: #fde8e8;
+      }
+    }
+  }
+}
+
+.drawer-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 48px;
+
+  .el-button {
+    font-weight: 500;
+    border-radius: $radius-sm;
+  }
+}
+
+/* Detail Tabs */
+.detail-tabs {
+  .el-tabs__item {
+    font-size: 1rem;
+    font-weight: 500;
+    color: $color-text-muted;
+
+    &.is-active {
+      color: $color-text-primary;
+    }
+  }
+
+  .el-tabs__active-bar {
+    background-color: $color-text-primary;
+  }
+
+  .el-tabs__nav-wrap::after {
+    height: 1px;
+    background-color: $color-border;
+  }
+}

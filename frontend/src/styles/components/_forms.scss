@@ -1,0 +1,70 @@
+@use '../variables' as *;
+
+/* Common Form & Input Styling Overrides */
+.required-asterisk {
+  color: $color-danger;
+}
+
+.el-form-item__label {
+  font-weight: 500;
+  color: $color-text-secondary;
+  padding-bottom: 6px;
+}
+
+.el-input__wrapper,
+.el-select__wrapper {
+  box-shadow: 0 0 0 1px $color-border inset;
+  border-radius: 6px;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 0 0 1px $color-border-dark inset;
+  }
+
+  &.is-focus,
+  &.is-focused {
+    box-shadow: 0 0 0 1px $color-primary inset, 0 0 0 2px rgba(20, 116, 111, 0.2) !important;
+  }
+}
+
+.el-textarea__inner {
+  border-radius: 6px;
+  box-shadow: 0 0 0 1px $color-border inset;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 0 0 1px $color-border-dark inset;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 1px $color-primary inset, 0 0 0 2px rgba(20, 116, 111, 0.2) !important;
+    outline: none !important;
+  }
+}
+
+/* Hanya saat validasi form error, gunakan warna merah */
+.el-form-item.is-error {
+  .el-input__wrapper,
+  .el-select__wrapper {
+    box-shadow: 0 0 0 1px $color-danger inset !important;
+
+    &.is-focus,
+    &.is-focused {
+      box-shadow: 0 0 0 1px $color-danger inset, 0 0 0 2px rgba(239, 68, 68, 0.2) !important;
+    }
+  }
+
+  .el-textarea__inner {
+    box-shadow: 0 0 0 1px $color-danger inset !important;
+
+    &:focus {
+      box-shadow: 0 0 0 1px $color-danger inset, 0 0 0 2px rgba(239, 68, 68, 0.2) !important;
+    }
+  }
+}
+
+.el-button {
+  border-radius: 6px;
+  font-weight: 500;
+}
+

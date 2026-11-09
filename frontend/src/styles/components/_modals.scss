@@ -1,0 +1,120 @@
+@use '../variables' as *;
+
+/* Global Modal & Dialog Overrides */
+
+.custom-error-modal {
+  border-radius: $radius-lg !important;
+  overflow: hidden;
+
+  .el-dialog__header {
+    display: none;
+  }
+
+  .el-dialog__body {
+    padding: 32px 24px 24px;
+  }
+
+  .error-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .error-icon-wrapper {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background-color: $color-danger-light;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+
+      .error-icon {
+        font-size: 32px;
+        color: $color-danger-text;
+      }
+    }
+
+    .error-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: $color-text-primary;
+      margin: 0 0 8px 0;
+    }
+
+    .error-message {
+      font-size: 0.95rem;
+      color: $color-text-muted;
+      margin: 0;
+      line-height: 1.5;
+    }
+  }
+
+  .dialog-footer {
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
+
+    .full-width-btn {
+      width: 100%;
+      font-weight: 500;
+      border-radius: $radius-md;
+      padding: 12px;
+      height: auto;
+    }
+  }
+}
+
+.custom-delete-modal {
+  border-radius: $radius-lg !important;
+
+  .delete-content {
+    font-size: 1.05rem;
+    color: $color-text-muted;
+    padding-top: 8px;
+
+    strong {
+      color: $color-text-primary;
+    }
+  }
+
+  .dialog-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 16px;
+  }
+}
+
+/* Dropdown Menu & Select Popper */
+.action-menu,
+.custom-select-popper {
+  .menu-label {
+    font-size: 0.7rem;
+    color: $color-text-subtle;
+    font-weight: 600;
+    padding: 8px 16px 4px;
+    letter-spacing: 0.5px;
+  }
+}
+
+.custom-select-popper {
+  .select-option-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    .sub-text {
+      color: $color-text-subtle;
+      margin-left: 4px;
+    }
+
+    .check-icon {
+      color: $color-text-secondary;
+      font-size: 1rem;
+      margin-left: 12px;
+    }
+  }
+}

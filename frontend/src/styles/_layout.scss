@@ -1,0 +1,67 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: transparent;
+  flex: 1;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  .header-left {
+    .title-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 4px;
+
+      h1 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #111827;
+        margin: 0;
+      }
+
+      .total-badge {
+        border-radius: 12px;
+        padding: 0 12px;
+        height: 24px;
+        line-height: 22px;
+        vertical-align: text-bottom;
+      }
+    }
+
+    .subtitle {
+      color: #6B7280;
+      font-size: 0.875rem;
+      margin: 0;
+    }
+  }
+
+  .add-btn {
+    border-radius: 6px;
+    font-weight: 500;
+  }
+}
+
+.filter-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+
+  .search-input {
+    max-width: 400px;
+  }
+
+  .filter-actions {
+    display: flex;
+    gap: 0.75rem;
+
+    .custom-select {
+      width: 140px;
+    }
+  }
+}

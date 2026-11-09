@@ -1,0 +1,99 @@
+/* Global Button Design System */
+
+.app-btn {
+  font-family: inherit;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all 0.2s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  outline: none;
+}
+
+/* Button Variants */
+.app-btn-primary {
+  background-color: #14746F;
+  border-color: #14746F;
+  color: #ffffff;
+
+  &:hover {
+    background-color: #0F3D3E;
+    border-color: #0F3D3E;
+  }
+
+  &:focus,
+  &:focus-visible {
+    background-color: #0F3D3E;
+    border-color: #0F3D3E;
+    box-shadow: 0 0 0 3px rgba(20, 116, 111, 0.25);
+    outline: none;
+  }
+}
+
+.app-btn-danger {
+  background-color: #ef4444;
+  border-color: #ef4444;
+  color: #ffffff;
+
+  &:hover, &:focus {
+    background-color: #881337;
+    border-color: #881337;
+  }
+}
+
+.app-btn-secondary {
+  background-color: #F3F4F6;
+  border-color: #E5E7EB;
+  color: #374151;
+
+  &:hover, &:focus {
+    background-color: #E5E7EB;
+    border-color: #D1D5DB;
+  }
+}
+
+.app-btn-outline {
+  background-color: #ffffff;
+  border-color: #D1D5DB;
+  color: #374151;
+
+  &:hover, &:focus {
+    background-color: #F9FAFB;
+    border-color: #9CA3AF;
+    color: #111827;
+  }
+}
+
+.app-btn-ghost {
+  background-color: transparent;
+  border-color: transparent;
+  color: #4B5563;
+
+  &:hover, &:focus {
+    background-color: #F3F4F6;
+    color: #111827;
+  }
+}
+
+/* Button Sizes */
+.app-btn-sm {
+  padding: 6px 12px;
+  font-size: 0.8125rem;
+  height: 32px;
+}
+
+.app-btn-md {
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  height: 40px;
+}
+
+.app-btn-lg {
+  padding: 10px 20px;
+  font-size: 1rem;
+  height: 44px;
+}

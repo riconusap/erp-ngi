@@ -1,0 +1,67 @@
+/* Global Responsive Media Queries for Mobile, Tablet, and Desktop */
+
+/* Tablet & Mobile (< 768px) */
+@media (max-width: 767px) {
+  /* Page Headers */
+  .page-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+
+    .header-right {
+      width: 100% !important;
+
+      .add-btn, .el-button {
+        width: 100% !important;
+      }
+    }
+  }
+
+  /* Filter Section */
+  .filter-section {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+
+    .search-input {
+      width: 100% !important;
+    }
+
+    .filter-actions {
+      width: 100% !important;
+      display: flex !important;
+      gap: 8px !important;
+
+      .custom-select, .filter-trigger {
+        flex: 1 !important;
+        width: 100% !important;
+      }
+    }
+  }
+
+  /* Modal Dialogs */
+  .el-dialog {
+    width: 92% !important;
+    max-width: 480px !important;
+    margin: 16px auto !important;
+  }
+
+  /* Form & Info Grids */
+  .info-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Login Box */
+  .login-container {
+    padding-top: 2rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+/* Tablet Only (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .search-input {
+    width: 280px !important;
+  }
+}
