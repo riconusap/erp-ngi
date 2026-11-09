@@ -2,8 +2,8 @@
   <aside class="sidebar" :class="{ 'collapsed': isCollapsed }">
     <div class="sidebar-header" :class="{ 'is-collapsed': isCollapsed }">
       <div class="brand">
-        <img v-if="!isCollapsed" src="@/assets/logo.png" alt="MKP Logo" class="logo" />
-        <img v-else src="@/assets/logoOnly.svg" alt="MKP Logo" class="logo" />
+        <img v-if="!isCollapsed" src="@/assets/logo.png" alt="GreenlyConnect Logo" class="logo" />
+        <img v-else src="@/assets/logoOnly.svg" alt="GreenlyConnect Logo" class="logo" />
       </div>
       <el-button circle class="collapse-btn" aria-label="Kecilkan sidebar" @click="$emit('toggle-collapse')">
         <el-icon :size="16">

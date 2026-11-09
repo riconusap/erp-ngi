@@ -1,13 +1,16 @@
 version: '3.8'
 
+# GreenlyConnect - PT Naturally Green Indonesia
+# Stack: PostgreSQL 16 + Laravel 13 (API) + Vue 3 Vite (Nginx)
+
 services:
   # Database PostgreSQL
   db:
     image: postgres:16-alpine
-    container_name: erp-postgres
+    container_name: greenly-postgres
     restart: unless-stopped
     environment:
-      POSTGRES_DB: boilerplate_admin
+      POSTGRES_DB: greenly_connect
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
@@ -15,9 +18,9 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
-      - erp-network
+      - greenly-network
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d boilerplate_admin"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d greenly_connect || pg_isready -U postgres"]
       interval: 5s
       timeout: 5s
       retries: 5
@@ -27,20 +30,20 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: erp-backend
+    container_name: greenly-backend
     restart: unless-stopped
     depends_on:
       db:
         condition: service_healthy
     environment:
-      APP_NAME: "ERP NGI"
+      APP_NAME: "GreenlyConnect"
       APP_ENV: local
       APP_DEBUG: "true"
       APP_URL: "http://localhost:8000"
       DB_CONNECTION: pgsql
       DB_HOST: db
       DB_PORT: 5432
-      DB_DATABASE: boilerplate_admin
+      DB_DATABASE: greenly_connect
       DB_USERNAME: postgres
       DB_PASSWORD: postgres
       L5_SWAGGER_GENERATE_ALWAYS: "true"
@@ -50,27 +53,28 @@ services:
       - ./backend:/var/www/html
       - /var/www/html/vendor
     networks:
-      - erp-network
+      - greenly-network
 
   # Frontend Vue 3 + Nginx
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    container_name: erp-frontend
+    container_name: greenly-frontend
     restart: unless-stopped
     depends_on:
       - backend
+    environment:
+      VITE_APP_NAME: "GreenlyConnect"
     ports:
       - "3000:80"
     networks:
-      - erp-network
+      - greenly-network
 
 volumes:
   postgres_data:
     driver: local
 
 networks:
-  erp-network:
+  greenly-network:
     driver: bridge
-

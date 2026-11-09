@@ -6,11 +6,11 @@ use OpenApi\Attributes as OA;
 
 #[OA\Info(
     version: '1.0.0',
-    title: 'KBYN Admin API Documentation',
-    description: 'Dokumentasi RESTful API untuk Sistem Manajemen Kepegawaian, Master Data, & Modul HRMS KBYN',
+    title: 'GreenlyConnect API Documentation',
+    description: 'Dokumentasi RESTful API GreenlyConnect untuk PT Naturally Green Indonesia - Sistem Manajemen Kepegawaian, Master Data, & HRMS ERP',
     contact: new OA\Contact(
-        name: 'KBYN Engineering Team',
-        email: 'admin@kbyn.id'
+        name: 'Naturally Green Indonesia Engineering Team',
+        email: 'tech@naturallygreen.id'
     )
 )]
 #[OA\Server(

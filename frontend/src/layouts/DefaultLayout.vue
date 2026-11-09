@@ -9,7 +9,7 @@
             <ArrowRight />
           </el-icon>
         </el-button>
-        <img src="@/assets/logo.png" alt="MKP Logo" class="mobile-logo" />
+        <img src="@/assets/logo.png" alt="GreenlyConnect Logo" class="mobile-logo" />
       </div>
       <div class="mobile-actions">
         <NotificationBell />

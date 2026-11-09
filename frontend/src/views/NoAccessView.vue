@@ -2,7 +2,7 @@
   <div class="no-access-container">
     <div class="no-access-box">
       <div class="brand">
-        <img src="@/assets/logo.png" alt="MKP Logo" class="logo" />
+        <img src="@/assets/logo.png" alt="GreenlyConnect Logo" class="logo" />
       </div>
       
       <div class="icon-container">
@@ -10,7 +10,7 @@
       </div>
       
       <h2>Akses Ditolak</h2>
-      <p>Akun Anda tidak memiliki izin untuk mengakses Dashboard Konsen Manajemen.</p>
+      <p>Akun Anda tidak memiliki izin untuk mengakses GreenlyConnect.</p>
       
       <div class="user-card">
         <el-avatar aria-label="Profil pengguna" :icon="UserFilled" :size="48" class="avatar"></el-avatar>

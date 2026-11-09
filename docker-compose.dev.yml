@@ -1,15 +1,16 @@
 version: '3.8'
 
+# GreenlyConnect - PT Naturally Green Indonesia
 # Mode Pengembangan (Live Hot Reload FE & BE)
 # Jalankan dengan: docker compose -f docker-compose.dev.yml up
 
 services:
   db:
     image: postgres:16-alpine
-    container_name: erp-postgres-dev
+    container_name: greenly-postgres-dev
     restart: unless-stopped
     environment:
-      POSTGRES_DB: boilerplate_admin
+      POSTGRES_DB: greenly_connect
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
@@ -17,9 +18,9 @@ services:
     volumes:
       - postgres_data_dev:/var/lib/postgresql/data
     networks:
-      - erp-network-dev
+      - greenly-network-dev
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d boilerplate_admin"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d greenly_connect || pg_isready -U postgres"]
       interval: 5s
       timeout: 5s
       retries: 5
@@ -28,20 +29,20 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: erp-backend-dev
+    container_name: greenly-backend-dev
     restart: unless-stopped
     depends_on:
       db:
         condition: service_healthy
     environment:
-      APP_NAME: "ERP NGI Dev"
+      APP_NAME: "GreenlyConnect Dev"
       APP_ENV: local
       APP_DEBUG: "true"
       APP_URL: "http://localhost:8000"
       DB_CONNECTION: pgsql
       DB_HOST: db
       DB_PORT: 5432
-      DB_DATABASE: boilerplate_admin
+      DB_DATABASE: greenly_connect
       DB_USERNAME: postgres
       DB_PASSWORD: postgres
       L5_SWAGGER_GENERATE_ALWAYS: "true"
@@ -51,18 +52,18 @@ services:
       - ./backend:/var/www/html
       - /var/www/html/vendor
     networks:
-      - erp-network-dev
+      - greenly-network-dev
 
   frontend:
     image: node:20-alpine
-    container_name: erp-frontend-dev
+    container_name: greenly-frontend-dev
     restart: unless-stopped
     working_dir: /app
     volumes:
       - ./frontend:/app
       - /app/node_modules
     environment:
-      - VITE_APP_NAME=Manajemen Konsen Pengguna
+      - VITE_APP_NAME=GreenlyConnect
       - VITE_APP_API_URL=http://localhost:8000/api
     ports:
       - "5173:5173"
@@ -70,13 +71,12 @@ services:
       - backend
     command: sh -c "npm install && npm run dev -- --host 0.0.0.0 --port 5173"
     networks:
-      - erp-network-dev
+      - greenly-network-dev
 
 volumes:
   postgres_data_dev:
     driver: local
 
 networks:
-  erp-network-dev:
+  greenly-network-dev:
     driver: bridge
-

@@ -3,7 +3,7 @@
     <div class="login-box">
       <div class="login-header">
         <div class="brand">
-          <img src="@/assets/logo.png" alt="MKP Logo" class="logo" />
+          <img src="@/assets/logo.png" alt="GreenlyConnect Logo" class="logo" />
         </div>
         <AppHeading level="2">Reset Password</AppHeading>
         <p>Silakan masukan password baru Anda.</p>

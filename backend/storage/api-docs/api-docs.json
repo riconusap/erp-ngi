@@ -1,11 +1,11 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "KBYN Admin API Documentation",
-        "description": "Dokumentasi RESTful API untuk Sistem Manajemen Kepegawaian, Master Data, & Modul HRMS KBYN",
+        "title": "GreenlyConnect API Documentation",
+        "description": "Dokumentasi RESTful API GreenlyConnect untuk PT Naturally Green Indonesia - Sistem Manajemen Kepegawaian, Master Data, & HRMS ERP",
         "contact": {
-            "name": "KBYN Engineering Team",
-            "email": "admin@kbyn.id"
+            "name": "Naturally Green Indonesia Engineering Team",
+            "email": "tech@naturallygreen.id"
         },
         "version": "1.0.0"
     },

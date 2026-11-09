@@ -2,15 +2,15 @@
   <div class="success-container">
     <div class="success-box">
       <div class="brand">
-        <img src="@/assets/logo.png" alt="MKP Logo" class="logo" />
+        <img src="@/assets/logo.png" alt="GreenlyConnect Logo" class="logo" />
       </div>
 
       <div class="icon-container">
         <img src="@/assets/success-icon.svg" alt="Success" class="success-icon-img" />
       </div>
 
-      <h2>Berhasil terhubung ke<br />Dashboard Konsen Manajemen</h2>
-      <p>Anda terhubung ke dashboard sebagai:</p>
+      <h2>Berhasil terhubung ke<br />GreenlyConnect</h2>
+      <p>Sistem ERP & Kepegawaian PT Naturally Green Indonesia</p>
 
       <div class="user-card">
         <el-avatar v-if="authStore.dataProfile?.avatar || authStore.user?.avatar" :size="48" :src="getAvatarUrl(authStore.dataProfile?.avatar || authStore.user?.avatar)"></el-avatar>
