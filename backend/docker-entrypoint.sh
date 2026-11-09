@@ -65,3 +65,4 @@ php artisan l5-swagger:generate 2>/dev/null || true
 
 echo "Backend ready. Starting server..."
 exec "$@"
+

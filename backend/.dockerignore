@@ -10,3 +10,4 @@ storage/pail
 .phpunit.result.cache
 *.log
 .DS_Store
+
